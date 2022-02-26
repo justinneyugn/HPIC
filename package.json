@@ -2,16 +2,13 @@
   "browserslist": [
     "defaults"
   ],
-  "scripts": {
-    "watch": "webpack --watch --mode=development",
-    "build": "webpack --mode=production"
-  },
   "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
