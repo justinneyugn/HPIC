@@ -1,7 +1,7 @@
 // Reading the file using default
 // fs npm package
 const fs = require("fs");
-csv = fs.readFileSync("2013_data.csv")
+csv = fs.readFileSync("2014_data.csv")
 
 // Convert the data to String and
 // split it in an array
@@ -75,4 +75,4 @@ result.push(obj)
 // Convert the resultant array to json and
 // generate the JSON output file.
 let json = JSON.stringify(result);
-fs.writeFileSync('2013_data_test.json', json);
+fs.writeFileSync('2014_data_test.json', json);
