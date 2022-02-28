@@ -8,7 +8,7 @@ From the endless viral memes to the iconic fights, the show has seen multiple pe
 platform for their breakout stars while providing great reaction gifs throughout social media.
 
 **Bye, Wig!** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state. 
-As viewers believe the show's peak spanned from Season 4 to Season 8, **Bye, Wig!** traverses through 2012 to 2016 and provides
+As viewers believe the show's peak spanned from Season 4 to Season 7, **Bye, Wig!** traverses through 2012 to 2015 and provides
 a closer look at who spearheaded the show's popularity.
 
 
