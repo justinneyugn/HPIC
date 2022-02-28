@@ -1,3 +1,7 @@
+// Original code from geeksforgeeks at: 
+// https://www.geeksforgeeks.org/how-to-convert-csv-to-json-file-having-comma-separated-values-in-node-js/
+
+
 // Reading the file using default
 // fs npm package
 const fs = require("fs");
