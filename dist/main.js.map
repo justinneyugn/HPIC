@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":"AAAAA,SAASC,iBAAiB,oBAAoB,WAC1CC,QAAQC,IAAI","sources":["webpack://project/./src/index.js"],"sourcesContent":["document.addEventListener(\"DOMContentLoaded\", () => {\n    console.log(\"Watch it baile baile baile baile\");\n})"],"names":["document","addEventListener","console","log"],"sourceRoot":""}
