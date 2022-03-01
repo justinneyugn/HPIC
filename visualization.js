@@ -13,7 +13,7 @@ export const fn1 = () => {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // us.json imported from: 
+    // us.json imported from GeoJSON from TopoJSON
     d3.queue()
         .defer(d3.json, "us.json")
         .await(ready);
