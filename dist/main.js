@@ -1,2 +1,2 @@
-document.addEventListener("DOMContentLoaded",(function(){console.log("Watch it baile baile baile baile")}));
+document.addEventListener("DOMContentLoaded",(function(){console.log("testing")}));
 //# sourceMappingURL=main.js.map
