@@ -15,14 +15,14 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "us.json")
+        .defer(d3.json, "../src/scripts/us.json")
         .await(ready);
 
 
     // uses Albers USA through GeoMercator and centers it while zooming in 
-    let projection = d3.geoMercator()
+    let projection = d3.geoAlbersUsa()
         .translate([ width / 2, height / 2])
-        .scale(100);
+        .scale(850);
 
     // creates path (geoPath) and sets projection
     // changes latitude and logitude in order to render a round map onto our flat surface
@@ -40,6 +40,8 @@ export function fn1() {
             .data(states)
             .enter().append("path")
             .attr("class", "state")
+            // "d" is the coordinate points for each state, path draws it
             .attr("d", path)
+
     }
 };
