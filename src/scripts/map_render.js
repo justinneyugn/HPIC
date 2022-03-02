@@ -14,12 +14,12 @@ export function fn1() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // us.json imported from GeoJSON from TopoJSON
-    // d3.queue()
-    //     .defer(d3.json, "../src/scripts/us_states.json")
-    //     .await(ready);
     d3.queue()
-        .defer(d3.json, "us_states.json")
+        .defer(d3.json, "../src/scripts/us_states.json")
         .await(ready);
+    // d3.queue()
+    //     .defer(d3.json, "us_states.json")
+    //     .await(ready);
 
     // create basis for legend
     let color = d3.scale.linear()
@@ -65,27 +65,41 @@ export function fn1() {
                 for (let j = 0; j < states.length; j++){
                     let stateName = states[j].properties.name;
                     if (dataState === stateName){
-                        states[j].properties.cast = dataValue;
+                        states[j].properties["cast"] = dataValue;
+                        console.log(states[j].properties["cast"])
                         break;
                     }
                 }
+                svg.selectAll(".state")
+                .data(states)
+                .enter().append("path")
+                .attr("class", "state")
+                // "d" is the coordinate points for each state, path draws it
+                .attr("d", path)
+                .style("stroke", "#fff")
+                .style("stroke-width", "1")
+                .style("fill", function(d) {
+                    // let value = d.properties.castMember;
+                    console.log(d.properties);
+                    // if (!value) return "rgb(213,222,217)"
+                })
             }
         })
         console.log(states)
 
-        svg.selectAll(".state")
-            .data(states)
-            .enter().append("path")
-            .attr("class", "state")
-            // "d" is the coordinate points for each state, path draws it
-            .attr("d", path)
-            .style("stroke", "#fff")
-            .style("stroke-width", "1")
-            .style("fill", function(d) {
-                // let value = d.properties.castMember;
-                console.log(d.properties);
-                // if (!value) return "rgb(213,222,217)"
-            })
+        // svg.selectAll(".state")
+        //     .data(states)
+        //     .enter().append("path")
+        //     .attr("class", "state")
+        //     // "d" is the coordinate points for each state, path draws it
+        //     .attr("d", path)
+        //     .style("stroke", "#fff")
+        //     .style("stroke-width", "1")
+        //     .style("fill", function(d) {
+        //         // let value = d.properties.castMember;
+        //         console.log(d.properties);
+        //         // if (!value) return "rgb(213,222,217)"
+        //     })
 
     }
 };
