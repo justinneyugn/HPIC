@@ -1,5 +1,4 @@
 export function fn1() {
-
     let margin = { top: 0, left: 0, right: 0, bottom: 0};
     let height = 400 - margin.top - margin.bottom;
     let width = 800 - margin.left - margin.right;
