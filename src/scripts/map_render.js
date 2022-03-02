@@ -18,16 +18,27 @@ export function fn1() {
         .defer(d3.json, "../src/scripts/us.json")
         .await(ready);
 
+    // create basis for legend
+    let color = d3.scale.linear()
+        .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(238,130,238)","rgb(60,179,113"]);
+    
+    let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Porsha Williams", "Kenya Moore"];
+
+    let div = d3.select("map")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
     // uses Albers USA through GeoMercator and centers it while zooming in 
     let projection = d3.geoAlbersUsa()
         .translate([ width / 2, height / 2])
-        .scale(850);
+        .scale(900);
 
     // creates path (geoPath) and sets projection
     // changes latitude and logitude in order to render a round map onto our flat surface
     let path = d3.geoPath()
         .projection(projection);
+
 
     function ready(error, data) {
         console.log(data);
@@ -35,6 +46,20 @@ export function fn1() {
         // topojson.feature converts raw geo data into useable geo data
         let states = topojson.feature(data, data.objects.states).features
         console.log(states);
+
+        // load in 2012 data
+        d3.csv("../src/data/2012_test.csv", function(dataset){
+            color.domain([0,1,2,3,4]); // set range of input data
+
+            for (let i = 0; i < dataset.length; i++) {
+                let dataState = dataset[i].State;
+                console.log(dataState)
+                let dataValue = 0
+                let arr = [parseInt(dataset[i].Nene), parseInt(dataset[i].Kim), parseInt(dataset[i].Kandi), parseInt(dataset[i].Porsha), parseInt(dataset[i].Kenya)]
+                let biggest = Math.max(...arr);
+                dataValue = arr.indexOf(biggest);
+            }
+        })
 
         svg.selectAll(".state")
             .data(states)
