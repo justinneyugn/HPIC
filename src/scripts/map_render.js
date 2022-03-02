@@ -13,7 +13,7 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "../src/scripts/us_states.json")
+        .defer(d3.json, "../assets/us_states.json")
         .await(ready);
 
     // create basis for legend
