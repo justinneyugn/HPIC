@@ -21,7 +21,6 @@ export function fn1() {
         .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(238,130,238)","rgb(60,179,113)"]);
     let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
-
     let div = d3.select("body")
         .append("div")
         .attr("class", "tooltip")
@@ -127,9 +126,7 @@ export function fn1() {
             .style("stroke-width", "1")
             .style("fill", function(d) {
                 let value = d.properties.cast;
-                if (value){
-                    return color(value);
-                }
+                return color(value);
             })
         }
 
