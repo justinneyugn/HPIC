@@ -14,8 +14,11 @@ export function fn1() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // us.json imported from GeoJSON from TopoJSON
+    // d3.queue()
+    //     .defer(d3.json, "../src/scripts/us_states.json")
+    //     .await(ready);
     d3.queue()
-        .defer(d3.json, "../src/scripts/us_states.json")
+        .defer(d3.json, "us_states.json")
         .await(ready);
 
     // create basis for legend
