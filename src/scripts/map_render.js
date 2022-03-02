@@ -15,7 +15,7 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "../src/scripts/us.json")
+        .defer(d3.json, "../src/scripts/us_states.json")
         .await(ready);
 
     // create basis for legend
@@ -44,7 +44,7 @@ export function fn1() {
         console.log(data);
 
         // topojson.feature converts raw geo data into useable geo data
-        let states = topojson.feature(data, data.objects.states).features
+        let states = topojson.feature(data, data.objects.us_states).features
         console.log(states);
 
         // load in 2012 data
@@ -53,13 +53,22 @@ export function fn1() {
 
             for (let i = 0; i < dataset.length; i++) {
                 let dataState = dataset[i].State;
-                console.log(dataState)
+                // console.log(dataState)
                 let dataValue = 0
                 let arr = [parseInt(dataset[i].Nene), parseInt(dataset[i].Kim), parseInt(dataset[i].Kandi), parseInt(dataset[i].Porsha), parseInt(dataset[i].Kenya)]
                 let biggest = Math.max(...arr);
                 dataValue = arr.indexOf(biggest);
+
+                for (let j = 0; j < states.length; j++){
+                    let stateName = states[j].properties.name;
+                    if (dataState === stateName){
+                        states[j].properties.cast = dataValue;
+                        break;
+                    }
+                }
             }
         })
+        console.log(states)
 
         svg.selectAll(".state")
             .data(states)
@@ -67,6 +76,13 @@ export function fn1() {
             .attr("class", "state")
             // "d" is the coordinate points for each state, path draws it
             .attr("d", path)
+            .style("stroke", "#fff")
+            .style("stroke-width", "1")
+            .style("fill", function(d) {
+                // let value = d.properties.castMember;
+                console.log(d.properties);
+                // if (!value) return "rgb(213,222,217)"
+            })
 
     }
 };
