@@ -13,7 +13,7 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "../dist/us_states.json")
+        .defer(d3.json, "/bye_wig/dist/us_states.json")
         .await(ready);
 
     // create basis for legend
@@ -76,28 +76,7 @@ export function fn1() {
                 d3.csv("../src/data/2015_data.csv", test)
             }
         })
-        // const but = document.getElementById("buttons")
-        // console.log(but)
-        // // d3.csv("../src/data/2012_data.csv", test);
-
-        // but.childNodes[0].addEventListener('click', function() {
-        //     d3.csv("../src/data/2012_data.csv", test)
-        // }
-        // )
-
-        // but.childNodes[1].addEventListener('click', function(){
-        //     d3.csv("../src/data/2013_data.csv", test)
-        // }
-        // )
-
-        // but.childNodes[2].addEventListener('click', function(){
-        //     d3.csv("../src/data/2014_data.csv", test)
-        // })
-        // but.childNodes[3].addEventListener('click', function(){
-        //     d3.csv("../src/data/2015_data.csv", test)
-        // })
-        // load in 2012 data
-        // let test = d3.csv("../src/data/2014_data.csv", 
+        
         function test(dataset){
 
             for (let i = 0; i < dataset.length; i++) {

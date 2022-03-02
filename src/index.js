@@ -1,3 +1,5 @@
 import {fn1} from "./scripts/map_render.js";
 
-document.addEventListener("DOMContentLoaded", () => {fn1()})
+document.addEventListener("DOMContentLoaded", () => {
+    fn1()
+})
