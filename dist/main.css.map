@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,EACI,6BAGJ,EACI,gBAGJ,OACI,a","sources":["webpack://project/./src/index.scss"],"sourcesContent":["* {\n    font-family: \"Helvetica Neue\";\n}\n\np {\n    font-size: 0.85em;\n}\n\n.state {\n    fill: #e3e3e3;\n}"],"names":[],"sourceRoot":""}
