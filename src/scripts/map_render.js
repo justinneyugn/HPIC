@@ -13,7 +13,7 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "../assets/us_states.json")
+        .defer(d3.json, "../dist/assets/us_states.json")
         .await(ready);
 
     // create basis for legend
@@ -99,7 +99,6 @@ export function fn1() {
         // load in 2012 data
         // let test = d3.csv("../src/data/2014_data.csv", 
         function test(dataset){
-            
 
             for (let i = 0; i < dataset.length; i++) {
                 let dataState = dataset[i].State;
