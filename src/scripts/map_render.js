@@ -13,7 +13,7 @@ export function fn1() {
 
     // us.json imported from GeoJSON from TopoJSON
     d3.queue()
-        .defer(d3.json, "/bye_wig/dist/us_states.json")
+        .defer(d3.json, "https://justinneyugn.github.io/bye_wig/dist/us_states.json")
         .await(ready);
 
     // create basis for legend
