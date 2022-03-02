@@ -133,15 +133,28 @@ export function fn1() {
             .attr("class", "rect")
             .style("fill", color);
     
+        let links = ["a", "b", "c", "d", "e"]
+
         legend.append("text")
             .data(legendText)
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
+            .attr("class", "housewife")
             .append("a")
-            .attr("href", "https://www.youtube.com/watch?v=q1CKTKdhQ4M")
             .attr("target", "_blank")
             .text(function(d) { return d; });
+
+        // attach link to each name in legend
+        let atags = document.querySelectorAll("a")
+        console.log(atags[0])
+        atags[0].setAttribute("href", "https://www.youtube.com/watch?v=uHs9FXMz2cM")
+        atags[1].setAttribute("href", "https://www.youtube.com/watch?v=wNSwN6dcJcc")
+        atags[2].setAttribute("href", "https://www.youtube.com/watch?v=sbrHY7PpXcA")
+        atags[3].setAttribute("href", "https://www.youtube.com/watch?v=69hWiJPNlIE")
+        atags[4].setAttribute("href", "https://www.youtube.com/watch?v=RVo4EUjznZ0")
+
+        
 
     }
 };
