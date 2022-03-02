@@ -51,3 +51,6 @@ In addition, this project will include:
 * **Tuesday:** Finish working on the other functionalities of the "Year" section and "Cast Member" section to work with my map
 * **Wednesday:** Focus on styling and implement different color schemes
 * **Thursday:** Deploy to GitHub pages
+
+## Live Link
+https://justinneyugn.github.io/Javascript_Project/
