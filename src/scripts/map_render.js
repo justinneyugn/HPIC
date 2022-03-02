@@ -43,10 +43,22 @@ export function fn1() {
         // topojson.feature converts raw geo data into useable geo data
         let states = topojson.feature(data, data.objects.us_states).features
 
+        // create buttons to pick a year
+        let years = ["2012", "2013", "2014", "2015"]
+
+        let buttons = d3.select("body").append("div")
+            .attr("class", "buttons")
+            .selectAll("button")
+            .data(years)
+            .enter()
+            .append("button")
+            .text(function(d) {return d;})
+
+
         color.domain([0,1,2,3,4]); // set range of input data
 
         // load in 2012 data
-        let test = d3.csv("../src/data/2012_data.csv", function(dataset){
+        let test = d3.csv("../src/data/2014_data.csv", function(dataset){
             
 
             for (let i = 0; i < dataset.length; i++) {
