@@ -12,8 +12,9 @@ export function fn1() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // us.json imported from GeoJSON from TopoJSON
+
     d3.queue()
-        .defer(d3.json, "./data/us_states.json")
+        .defer(d3.json, "../dist/us_states.json")
         .await(ready);
 
     // create basis for legend
