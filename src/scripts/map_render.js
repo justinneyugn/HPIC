@@ -52,32 +52,51 @@ export function fn1() {
             .data(years)
             .enter()
             .append("button")
-            .attr("class", "button")
             .text(function(d) {return d;})
 
+        // add ids for each button
+        let buttontags = document.querySelectorAll("button")
+        buttontags[0].setAttribute("class", "firstButton")
+        buttontags[1].setAttribute("class", "secondButton")
+        buttontags[2].setAttribute("class", "thirdButton")
+        buttontags[3].setAttribute("class", "fourthButton")
+        
 
         color.domain([0,1,2,3,4]); // set range of input data
 
-        const but = document.getElementById("buttons")
-        console.log(but)
-        // d3.csv("../src/data/2012_data.csv", test);
 
-        but.childNodes[0].addEventListener('click', function() {
-            d3.csv("../src/data/2012_data.csv", test)
-        }
-        )
 
-        but.childNodes[1].addEventListener('click', function(){
-            d3.csv("../src/data/2013_data.csv", test)
-        }
-        )
-
-        but.childNodes[2].addEventListener('click', function(){
-            d3.csv("../src/data/2014_data.csv", test)
+        document.getElementById("buttons").addEventListener("click", function(e){
+            if (e.target && e.target.matches("button.firstButton")){
+                d3.csv("../src/data/2012_data.csv", test)
+            } else if (e.target && e.target.matches("button.secondButton")){
+                d3.csv("../src/data/2013_data.csv", test)
+            } else if (e.target && e.target.matches("button.thirdButton")){
+                d3.csv("../src/data/2014_data.csv", test)
+            } else if (e.target && e.target.matches("button.fourthButton")){
+                d3.csv("../src/data/2015_data.csv", test)
+            }
         })
-        but.childNodes[3].addEventListener('click', function(){
-            d3.csv("../src/data/2015_data.csv", test)
-        })
+        // const but = document.getElementById("buttons")
+        // console.log(but)
+        // // d3.csv("../src/data/2012_data.csv", test);
+
+        // but.childNodes[0].addEventListener('click', function() {
+        //     d3.csv("../src/data/2012_data.csv", test)
+        // }
+        // )
+
+        // but.childNodes[1].addEventListener('click', function(){
+        //     d3.csv("../src/data/2013_data.csv", test)
+        // }
+        // )
+
+        // but.childNodes[2].addEventListener('click', function(){
+        //     d3.csv("../src/data/2014_data.csv", test)
+        // })
+        // but.childNodes[3].addEventListener('click', function(){
+        //     d3.csv("../src/data/2015_data.csv", test)
+        // })
         // load in 2012 data
         // let test = d3.csv("../src/data/2014_data.csv", 
         function test(dataset){
@@ -103,8 +122,7 @@ export function fn1() {
             .data(states)
             .enter().append("path")
             .attr("class", "state")
-            // "d" is the coordinate points for each state, path draws it
-            .attr("d", path)
+            .attr("d", path) // "d" is the coordinate points for each state, path draws it
             .style("stroke", "#fff")
             .style("stroke-width", "1")
             .style("fill", function(d) {
@@ -114,7 +132,6 @@ export function fn1() {
                 }
             })
         }
-        // console.log(states)
 
         let legend = d3.select("body").append("svg")
             .attr("class", "legend")
@@ -132,8 +149,6 @@ export function fn1() {
             .attr("height", 18)
             .attr("class", "rect")
             .style("fill", color);
-    
-        let links = ["a", "b", "c", "d", "e"]
 
         legend.append("text")
             .data(legendText)
