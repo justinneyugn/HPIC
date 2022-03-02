@@ -47,18 +47,40 @@ export function fn1() {
         let years = ["2012", "2013", "2014", "2015"]
 
         let buttons = d3.select("body").append("div")
-            .attr("class", "buttons")
+            .attr("id", "buttons")
             .selectAll("button")
             .data(years)
             .enter()
             .append("button")
+            .attr("class", "button")
             .text(function(d) {return d;})
 
 
         color.domain([0,1,2,3,4]); // set range of input data
 
+        const but = document.getElementById("buttons")
+        console.log(but)
+        // d3.csv("../src/data/2012_data.csv", test);
+
+        but.childNodes[0].addEventListener('click', function() {
+            d3.csv("../src/data/2012_data.csv", test)
+        }
+        )
+
+        but.childNodes[1].addEventListener('click', function(){
+            d3.csv("../src/data/2013_data.csv", test)
+        }
+        )
+
+        but.childNodes[2].addEventListener('click', function(){
+            d3.csv("../src/data/2014_data.csv", test)
+        })
+        but.childNodes[3].addEventListener('click', function(){
+            d3.csv("../src/data/2015_data.csv", test)
+        })
         // load in 2012 data
-        let test = d3.csv("../src/data/2014_data.csv", function(dataset){
+        // let test = d3.csv("../src/data/2014_data.csv", 
+        function test(dataset){
             
 
             for (let i = 0; i < dataset.length; i++) {
@@ -91,7 +113,7 @@ export function fn1() {
                     return color(value);
                 }
             })
-        })
+        }
         // console.log(states)
 
         let legend = d3.select("body").append("svg")
@@ -116,6 +138,10 @@ export function fn1() {
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
+            .append("a")
+            .attr("href", "https://www.youtube.com/watch?v=q1CKTKdhQ4M")
+            .attr("target", "_blank")
             .text(function(d) { return d; });
+
     }
 };
