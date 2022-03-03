@@ -1,4 +1,4 @@
-# Bye, Wig!
+# H.P.I.C. (Head Peach In Charge)
 
 
 ## Background
@@ -7,17 +7,17 @@ Since 2008, The Real Housewives of Atlanta has been on the forefront of pop cult
 From the endless viral memes to the iconic fights, the show has seen multiple peaks in success, serving as a huge 
 platform for their breakout stars while providing great reaction gifs throughout social media.
 
-**Bye, Wig!** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state. 
-As viewers believe the show's peak spanned from Season 4 to Season 7, **Bye, Wig!** traverses through 2012 to 2015 and provides
+**H.P.I.C.** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state. 
+As viewers believe the show's peak spanned from Season 4 to Season 8, **H.P.I.C.** traverses through 2012 to 2016 and provides
 a closer look at who spearheaded the show's popularity.
 
 
 
 ## Functionality & MVPs
 
-With **Bye, Wig!**, users will be able to:
+With **H.P.I.C.**, users will be able to:
 
-* Choose a year ranging from the show's third season to the eighth season
+* Choose a year ranging from the show's fourth season to the eighth season
 * Hover over a state to show the top three most popular cast members of that state
 * Click on one of the cast members located on a side section to only highlight the states where they are the most popular member of that year
 * Click on a link for each member with their most iconic moment or fight on the show
