@@ -68,7 +68,7 @@ path:hover {
 }
 
 body {
-  background-color: white;
+  background-color: peachpuff;
 }
 
 #positioning {
@@ -96,4 +96,40 @@ body {
 
 .housewife:hover {
   text-decoration: underline;
+}
+
+#years-description {
+  position: fixed;
+  top: 65%;
+  right: 87%;
+}
+
+.firstButton {
+  position: fixed;
+  top: 73%;
+  right: 90%;
+}
+
+.secondButton {
+  position: fixed;
+  top: 76%;
+  right: 90%;
+}
+
+.thirdButton {
+  position: fixed;
+  top: 79%;
+  right: 90%;
+}
+
+.fourthButton {
+  position: fixed;
+  top: 82%;
+  right: 90%;
+}
+
+.fifthButton {
+  position: fixed;
+  top: 85%;
+  right: 90%;
 }

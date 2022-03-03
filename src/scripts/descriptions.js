@@ -11,7 +11,7 @@ export function descriptions(){
     // tag for Years Description
     const aboutYears = document.createElement("h2");
     aboutYears.setAttribute("id", "years-description");
-    const node2 = document.createTextNode("Select a Year for the Map:");
+    const node2 = document.createTextNode("Select a Year:");
     aboutYears.appendChild(node2);
     map.insertBefore(aboutYears, child)
 

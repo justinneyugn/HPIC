@@ -2,7 +2,7 @@ export function header() {
     // tag for title
     const title = document.createElement("div");
     title.setAttribute("class", "title")
-    const node = document.createTextNode("Who's Got the Best Peach?");
+    const node = document.createTextNode("Head Peach In Charge");
     title.appendChild(node);
     const element = document.querySelector("body")
     const child = document.getElementById("map")
