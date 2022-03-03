@@ -1,3 +1,12 @@
+/*  This visualization was made possible by modifying code provided by:
+
+Michelle Chandra, State Choropleth example from "Basic US State Map - D3" 
+http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922  
+		
+Jonathan Soma, video from "Making a map of the United States with d3, topojson, and a csv"
+https://www.youtube.com/watch?v=G-VggTK-Wlg&t=983s */
+
+
 export function fn1() {
     let margin = { top: 0, left: 0, right: 0, bottom: 0};
     let height = 400 - margin.top - margin.bottom;
@@ -20,7 +29,7 @@ export function fn1() {
 
     // create basis for legend
     let color = d3.scale.linear()
-        .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(238,130,238)","rgb(60,179,113)"]);
+        .range(["#391600","#6a2a00","#9b3d00","#cc5000","#fc6400"]);
     let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
     let div = d3.select("body")
@@ -45,7 +54,7 @@ export function fn1() {
         let states = topojson.feature(data, data.objects.us_states).features
 
         // create buttons to pick a year
-        let years = ["2012", "2013", "2014", "2015"]
+        let years = ["2012", "2013", "2014", "2015", "2016"]
 
         let buttons = d3.select("body").append("div")
             .attr("id", "buttons")
@@ -61,6 +70,8 @@ export function fn1() {
         buttontags[1].setAttribute("class", "secondButton")
         buttontags[2].setAttribute("class", "thirdButton")
         buttontags[3].setAttribute("class", "fourthButton")
+        buttontags[4].setAttribute("class", "fifthButton")
+
 
 
 
@@ -77,6 +88,8 @@ export function fn1() {
                 d3.csv("../src/data/2014_data.csv", test)
             } else if (e.target && e.target.matches("button.fourthButton")){
                 d3.csv("../src/data/2015_data.csv", test)
+            } else if (e.target && e.target.matches("button.fifthButton")){
+                d3.csv("../src/data/2016_data.csv", test)
             }
         })
         
@@ -113,7 +126,7 @@ export function fn1() {
 
         let legend = d3.select("body").append("svg")
             .attr("class", "legend")
-            .attr("width", 140)
+            .attr("width", 250)
             .attr("height", 200)
             .selectAll("g")
             .data(color.domain().slice())
