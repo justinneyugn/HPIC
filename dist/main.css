@@ -3,7 +3,7 @@
   \*************************************************************************************************************************************/
 .title {
   font-family: palatino;
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 700;
   margin-top: 20px;
   letter-spacing: 1px;
@@ -12,14 +12,28 @@
   justify-content: center;
 }
 
+#image {
+  position: fixed;
+  bottom: 78%;
+  right: 80%;
+}
+
 #peach {
   position: fixed;
-  bottom: 75%;
+  bottom: 90%;
+  left: 60%;
+  opacity: 0.75;
+}
+
+#peach2 {
+  position: fixed;
+  bottom: 90%;
+  right: 61%;
   opacity: 0.75;
 }
 
 .title-subheading {
-  font-family: "Courier New", Courier, monospace;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
 }
@@ -46,7 +60,7 @@
 }
 
 #map-description {
-  font-family: "Courier New", Courier, monospace;
+  font-family: sans-serif;
   font-weight: 40;
   display: flex;
   justify-content: center;
@@ -82,7 +96,6 @@ path:hover {
 
 body {
   background-color: #fedac1;
-  background-image: url("https://i.ytimg.com/vi/Vj6v7IksZEc/maxresdefault.jpg");
 }
 
 #positioning {
