@@ -8,6 +8,7 @@ export function fn1() {
         .append("svg")
         .attr("height", height + margin.top + margin.bottom)
         .attr("width", width + margin.left + margin.right)
+        .attr("id", "positioning")
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -39,7 +40,7 @@ export function fn1() {
 
 
     function ready(error, data) {
-
+        
         // topojson.feature converts raw geo data into useable geo data
         let states = topojson.feature(data, data.objects.us_states).features
 
@@ -56,11 +57,11 @@ export function fn1() {
 
         // add ids for each button
         let buttontags = document.querySelectorAll("button")
-        buttontags[0].setAttribute("class", "firstButton")
-        buttontags[1].setAttribute("class", "secondButton")
-        buttontags[2].setAttribute("class", "thirdButton")
-        buttontags[3].setAttribute("class", "fourthButton")
-        
+        buttontags[0].setAttribute("id", "firstButton")
+        buttontags[1].setAttribute("id", "secondButton")
+        buttontags[2].setAttribute("id", "thirdButton")
+        buttontags[3].setAttribute("id", "fourthButton")
+
 
         color.domain([0,1,2,3,4]); // set range of input data
 
@@ -138,11 +139,11 @@ export function fn1() {
 
         // attach link to each name in legend
         let atags = document.querySelectorAll("a")
-        atags[0].setAttribute("href", "https://www.youtube.com/watch?v=uHs9FXMz2cM")
-        atags[1].setAttribute("href", "https://www.youtube.com/watch?v=wNSwN6dcJcc")
-        atags[2].setAttribute("href", "https://www.youtube.com/watch?v=sbrHY7PpXcA")
-        atags[3].setAttribute("href", "https://www.youtube.com/watch?v=69hWiJPNlIE")
-        atags[4].setAttribute("href", "https://www.youtube.com/watch?v=RVo4EUjznZ0")
+        atags[2].setAttribute("href", "https://www.youtube.com/watch?v=uHs9FXMz2cM")
+        atags[3].setAttribute("href", "https://www.youtube.com/watch?v=wNSwN6dcJcc")
+        atags[4].setAttribute("href", "https://www.youtube.com/watch?v=sbrHY7PpXcA")
+        atags[5].setAttribute("href", "https://www.youtube.com/watch?v=69hWiJPNlIE")
+        atags[6].setAttribute("href", "https://www.youtube.com/watch?v=RVo4EUjznZ0")
 
         
 
