@@ -1,23 +1,36 @@
 .title {
-    font-family: 'Garamond', serif;
-    font-size: 75px;
+    font-family: palatino;
+    font-size: 80px;
     font-weight: 700;
     margin-top: 20px;
     letter-spacing: 1px;
-    color: #2f574c;
+    color: black;
     display: flex;
     justify-content: center;
 }
+#peach{
+    position: fixed;
+    bottom: 75%;
+    opacity: 0.75;
+}
+.title-subheading {
+    // font-family: 'Garamond', serif;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+
+}
 #by-name {
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 10;
     display: block;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-family: 'Garamond', serif;
+    // font-family: 'Garamond', serif;
+    font-family: 'Courier New', Courier, monospace;
     padding-right: 50px;
 }
 
@@ -29,27 +42,29 @@
     margin-bottom: 20px;
 }
 #map-description {
-    font-family: 'Garamond', serif;
-    font-weight: 30;
-    position:fixed;
-    top: 25%;
-    left: 35%;
-
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 40;
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    font-size: 30px;
 }
 #legend-title {
     position: fixed;
     left: 85%;
     top: 69%;
     font-size: 20px;
-    font-family: 'Garamond', serif;
-    font-weight: 20;
+    // font-family: 'Garamond', serif;
+    font-family: palatino;
+    font-weight: bold;
 }
 
 #legend-description{
     position:fixed;
     top: 85%;
     left: 80%;
-    font-family: 'Garamond', serif;
+    // font-family: 'Garamond', serif;
+    font-family: palatino;
     font-size: 15px;
     font-weight: 10;
 }
@@ -64,7 +79,8 @@ path:hover{
 
 
 body {
-    background-color: peachpuff;
+    background-color: #fedac1;
+    background-image: url('https://i.ytimg.com/vi/Vj6v7IksZEc/maxresdefault.jpg');
 }
 
 #positioning{
@@ -87,41 +103,111 @@ body {
 
 .housewife{
     font-size: 19px;
-    font-family: 'Garamond', serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .housewife:hover{
     text-decoration: underline;
+    text-decoration-thickness: 0.1em;
 }
 
 #years-description{
     position: fixed;
-    top: 65%;
-    right: 87%;
+    top: 41%;
+    right: 88%;
+    font-family: palatino;
+    font-weight: bold;
+
 }
 .firstButton{
     position: fixed;
-    top: 73%;
+    top: 50%;
     right: 90%;
+	padding: 0.5em 1em;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+    background-color: #E0BBE4;
+    font-family: palatino;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: 500;
+    border-color: lightgray;
+}
+
+.firstButton:hover{
+    opacity: .7;
+}
+.secondButton:hover{
+    opacity: .7;
+}
+.thirdButton:hover{
+    opacity: .7;
+}
+.fourthButton:hover{
+    opacity: .7;
+}
+.fifthButton:hover{
+    opacity: .7;
 }
 
 .secondButton{
     position: fixed;
-    top: 76%;
+    top: 58%;
     right: 90%;
+    padding: 0.5em 1em;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+    background-color: #E0BBE4;
+    font-family: palatino;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: 500;
+    border-color: lightgray;
 }
 .thirdButton{
     position: fixed;
-    top: 79%;
+    top: 66%;
     right: 90%;
+    padding: 0.5em 1em;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+    background-color: #E0BBE4;
+    font-family: palatino;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: 500;
+    border-color: lightgray;
 }
 .fourthButton{
     position: fixed;
-    top: 82%;
+    top: 74%;
     right: 90%;
+    padding: 0.5em 1em;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+    background-color: #E0BBE4;
+    font-family: palatino;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: 500;
+    border-color: lightgray;
 }
 .fifthButton{
     position: fixed;
-    top: 85%;
+    top: 82%;
     right: 90%;
+    padding: 0.5em 1em;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+    background-color: #E0BBE4;
+    font-family: palatino;
+    border-radius: 25%;
+    font-size: 20px;
+    font-weight: 500;
+    border-color: lightgray;
 }

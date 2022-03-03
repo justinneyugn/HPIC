@@ -29,13 +29,9 @@ export function fn1() {
 
     // create basis for legend
     let color = d3.scale.linear()
-        .range(["#391600","#6a2a00","#9b3d00","#cc5000","#fc6400"]);
+        .range(["#E0BBE4","#957dad","#d291bc","#fec8d8","#7ec7b9"]);
     let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
-    let div = d3.select("body")
-        .append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
     // uses Albers USA through GeoMercator and centers it while zooming in 
     let projection = d3.geoAlbersUsa()

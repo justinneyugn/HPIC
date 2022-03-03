@@ -2,7 +2,7 @@ export function descriptions(){
     // tag for Map Description
     const aboutMap = document.createElement("h1");
     aboutMap.setAttribute("id", "map-description");
-    const node = document.createTextNode("Most Popular Atlanta Housewife of Each State");
+    const node = document.createTextNode("Most Popular Real Housewife of Atlanta of Each State");
     aboutMap.appendChild(node);
     const map = document.getElementById("map");
     const child = document.getElementById("positioning");

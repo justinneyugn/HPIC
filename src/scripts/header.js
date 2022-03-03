@@ -2,11 +2,18 @@ export function header() {
     // tag for title
     const title = document.createElement("div");
     title.setAttribute("class", "title")
-    const node = document.createTextNode("Best Peach?");
+    const node = document.createTextNode("H.P.I.C.");
     title.appendChild(node);
     const element = document.querySelector("body")
     const child = document.getElementById("map")
     element.insertBefore(title, child)
+
+    // tag for Title Subheading
+    const titleSub = document.createElement("div");
+    titleSub.setAttribute("class", "title-subheading")
+    const node3 = document.createTextNode("(Head Peach In Charge)");
+    titleSub.appendChild(node3);
+    element.insertBefore(titleSub, child)
 
     // tag for About Me section
     const aboutme = document.createElement("div");
