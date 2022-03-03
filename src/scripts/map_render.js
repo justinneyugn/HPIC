@@ -57,10 +57,11 @@ export function fn1() {
 
         // add ids for each button
         let buttontags = document.querySelectorAll("button")
-        buttontags[0].setAttribute("id", "firstButton")
-        buttontags[1].setAttribute("id", "secondButton")
-        buttontags[2].setAttribute("id", "thirdButton")
-        buttontags[3].setAttribute("id", "fourthButton")
+        buttontags[0].setAttribute("class", "firstButton")
+        buttontags[1].setAttribute("class", "secondButton")
+        buttontags[2].setAttribute("class", "thirdButton")
+        buttontags[3].setAttribute("class", "fourthButton")
+
 
 
         color.domain([0,1,2,3,4]); // set range of input data
