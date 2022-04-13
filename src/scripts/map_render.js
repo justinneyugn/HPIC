@@ -77,15 +77,15 @@ export function fn1() {
 
         document.getElementById("buttons").addEventListener("click", function(e){
             if (e.target && e.target.matches("button.firstButton")){
-                d3.csv("../src/data/2012_data.csv", test)
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2012_data.csv", test)
             } else if (e.target && e.target.matches("button.secondButton")){
-                d3.csv("../src/data/2013_data.csv", test)
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2013_data.csv", test)
             } else if (e.target && e.target.matches("button.thirdButton")){
-                d3.csv("../src/data/2014_data.csv", test)
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2014_data.csv", test)
             } else if (e.target && e.target.matches("button.fourthButton")){
-                d3.csv("../src/data/2015_data.csv", test)
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2015_data.csv", test)
             } else if (e.target && e.target.matches("button.fifthButton")){
-                d3.csv("../src/data/2016_data.csv", test)
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2016_data.csv", test)
             }
         })
         
