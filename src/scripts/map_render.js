@@ -24,7 +24,7 @@ export function fn1() {
     // us.json imported from GeoJSON from TopoJSON
 
     d3.queue()
-        .defer(d3.json, "../dist/us_states.json")
+        .defer(d3.json, "https://raw.githubusercontent.com/justinneyugn/hpic_data/main/us_states.json")
         .await(ready);
 
     // create basis for legend
