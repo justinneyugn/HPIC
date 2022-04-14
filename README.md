@@ -53,4 +53,4 @@ In addition, this project will include:
 * **Thursday:** Deploy to GitHub pages
 
 ## Live Link
-https://justinneyugn.github.io/Javascript_Project/
+https://justinneyugn.github.io/HPIC/
