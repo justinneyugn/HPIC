@@ -18,7 +18,6 @@ a closer look at who spearheaded the show's popularity.
 With **H.P.I.C.**, users will be able to:
 
 * Choose a year ranging from the show's fourth season to the eighth season
-* Hover over a state to show the top three most popular cast members of that state
 * Click on one of the cast members located on a side section to only highlight the states where they are the most popular member of that year
 * Click on a link for each member with their most iconic moment or fight on the show
 
