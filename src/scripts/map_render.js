@@ -73,21 +73,6 @@ export function fn1() {
 
         color.domain([0,1,2,3,4]); // set range of input data
 
-
-
-        document.getElementById("buttons").addEventListener("click", function(e){
-            if (e.target && e.target.matches("button.firstButton")){
-                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2012_data.csv", test)
-            } else if (e.target && e.target.matches("button.secondButton")){
-                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2013_data.csv", test)
-            } else if (e.target && e.target.matches("button.thirdButton")){
-                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2014_data.csv", test)
-            } else if (e.target && e.target.matches("button.fourthButton")){
-                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2015_data.csv", test)
-            } else if (e.target && e.target.matches("button.fifthButton")){
-                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2016_data.csv", test)
-            }
-        })
         
         function test(dataset){
 
@@ -107,18 +92,45 @@ export function fn1() {
                 }
                 
             }
+            
             svg.selectAll(".state")
-            .data(states)
-            .enter().append("path")
-            .attr("class", "state")
-            .attr("d", path) // "d" is the coordinate points for each state, path draws it
-            .style("stroke", "#fff")
-            .style("stroke-width", "1")
-            .style("fill", function(d) {
-                let value = d.properties.cast;
-                return color(value);
-            })
+                .data(states)
+                .enter().append("path")
+                .attr("class", "state")
+                .attr("d", path) // "d" is the coordinate points for each state, path draws it
+                .style("stroke", "#fff")
+                .style("stroke-width", "1")
+                .style("fill", function(d) {
+                    let value = d.properties.cast;
+                    return color(value);
+                })
+
+            //changes the fill color of map based on change in states.properties.cast when different year is clicked
+            let state = document.querySelectorAll(".state");
+                for (let i = 0; i < state.length; i++) {
+                    let value = states[i].properties.cast;
+                    state[i].style.fill = color(value);
+                }
         }
+
+        //start the homepage with 2012 map already loaded
+        d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2012_data.csv", test);
+
+
+        //event listeners that load respective year's data onto map
+        document.getElementById("buttons").addEventListener("click", function(e){
+            if (e.target && e.target.matches("button.firstButton")){
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2012_data.csv", test)
+            } else if (e.target && e.target.matches("button.secondButton")){
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2013_data.csv", test)
+            } else if (e.target && e.target.matches("button.thirdButton")){
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2014_data.csv", test)
+            } else if (e.target && e.target.matches("button.fourthButton")){
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2015_data.csv", test)
+            } else if (e.target && e.target.matches("button.fifthButton")){
+                d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2016_data.csv", test)
+            }
+        })
 
         let legend = d3.select("body").append("svg")
             .attr("class", "legend")
