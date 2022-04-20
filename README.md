@@ -1,4 +1,4 @@
-# H.P.I.C. (Head Peach In Charge)
+# [H.P.I.C. (Head Peach In Charge)](https://justinneyugn.github.io/HPIC/)
 
 Since 2008, The Real Housewives of Atlanta has been on the forefront of pop culture. 
 From the endless viral memes to the iconic fights, the show has seen multiple peaks in success, serving as a huge 
