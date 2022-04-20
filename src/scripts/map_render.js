@@ -29,7 +29,7 @@ export function fn1() {
 
     // create basis for legend
     let color = d3.scale.linear()
-        .range(["#E0BBE4","#957dad","#d291bc","#fec8d8","#7ec7b9"]);
+        .range(["#E0BBE4","#BAC1F1","#91C7ED","#78C9D8","#7EC7B9"]);
     let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
 
