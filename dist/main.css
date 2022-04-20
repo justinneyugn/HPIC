@@ -5,7 +5,7 @@
   font-family: sans-serif;
   font-size: 90px;
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 0%;
   letter-spacing: 1px;
   color: black;
   display: flex;
@@ -20,15 +20,15 @@
 
 #peach {
   position: fixed;
-  bottom: 90%;
-  left: 60%;
+  top: 2%;
+  right: 30%;
   opacity: 0.75;
 }
 
 #peach2 {
   position: fixed;
-  bottom: 90%;
-  right: 61%;
+  top: 2%;
+  left: 30%;
   opacity: 0.75;
 }
 
@@ -68,6 +68,14 @@
   font-size: 30px;
 }
 
+#hover-description {
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 10;
+  display: flex;
+  justify-content: center;
+}
+
 #legend-title {
   position: fixed;
   left: 85%;
@@ -79,7 +87,7 @@
 
 #legend-description {
   position: fixed;
-  top: 85%;
+  top: 90%;
   left: 80%;
   font-family: sans-serif;
   font-size: 15px;

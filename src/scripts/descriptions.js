@@ -2,7 +2,8 @@ export function descriptions(){
     // tag for Map Description
     const aboutMap = document.createElement("h1");
     aboutMap.setAttribute("id", "map-description");
-    const node = document.createTextNode("Most Popular Real Housewife of Atlanta of Each State");
+    // const node = document.createTextNode("Most Popular Real Housewife of Atlanta of Each State");
+    const node = document.createTextNode("Real Housewives of Atlanta");
     aboutMap.appendChild(node);
     const map = document.getElementById("map");
     const child = document.getElementById("positioning");
@@ -10,7 +11,7 @@ export function descriptions(){
 
     const hover = document.createElement("h3");
     hover.setAttribute("id", "hover-description");
-    const node5 = document.createTextNode("(Hover over a state to see the top two housewives)");
+    const node5 = document.createTextNode("(Refer to Legend for MOST popular housewife and hover a state for SECOND most popular)");
     hover.appendChild(node5);
     map.insertBefore(hover, child);
 

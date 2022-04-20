@@ -9,8 +9,8 @@ https://www.youtube.com/watch?v=G-VggTK-Wlg&t=983s */
 
 export function fn1() {
     let margin = { top: 0, left: 0, right: 0, bottom: 0 };
-    let height = 400 - margin.top - margin.bottom;
-    let width = 800 - margin.left - margin.right;
+    let height = 500 - margin.top - margin.bottom;
+    let width = 700 - margin.left - margin.right;
 
     // boilerplate for starting a d3 visualization
     let svg = d3.select("#map")
@@ -81,7 +81,7 @@ export function fn1() {
 
 
         function test(dataset) {
-            let housewife = ["Nene", "Kim", "Kandi", "Porsha", "Kenya"];
+            let housewife = ["Nene Leakes", "Kim Zolciak", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
             for (let i = 0; i < dataset.length; i++) {
                 let dataState = dataset[i].State;
@@ -134,7 +134,7 @@ export function fn1() {
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.text(housewife[d.properties.cast] + ', ' + housewife[d.properties.second])
+                    div.text(housewife[d.properties.second])
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                 })
