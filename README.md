@@ -1,55 +1,75 @@
 # H.P.I.C. (Head Peach In Charge)
 
-
-## Background
-
 Since 2008, The Real Housewives of Atlanta has been on the forefront of pop culture. 
 From the endless viral memes to the iconic fights, the show has seen multiple peaks in success, serving as a huge 
 platform for their breakout stars while providing great reaction gifs throughout social media.
 
-**H.P.I.C.** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state. 
-As viewers believe the show's peak spanned from Season 4 to Season 8, **H.P.I.C.** traverses through 2012 to 2016 and provides
+**[H.P.I.C.](https://justinneyugn.github.io/HPIC/)** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state on a rendered map of the U.S. 
+As viewers believe the show's peak spanned from Season 4 to Season 8, **[H.P.I.C.](https://justinneyugn.github.io/HPIC/)** traverses through 2012 to 2016 and provides
 a closer look at who spearheaded the show's popularity.
 
 
 
-## Functionality & MVPs
+## Functionality 
 
-With **H.P.I.C.**, users will be able to:
+With **[H.P.I.C.](https://justinneyugn.github.io/HPIC/)**, users can:
 
-* Choose a year ranging from the show's fourth season to the eighth season
-* Click on one of the cast members located on a side section to only highlight the states where they are the most popular member of that year
+* Choose a year ranging from the show's fourth season to the eighth season to change the map
+* Refer to a legend that displays which color on the map pertains to the most popular housewife
+* Hover over a state to show the second most popular housewife of each state
 * Click on a link for each member with their most iconic moment or fight on the show
 
-In addition, this project will include:
-* An **About** section that will describe how to use the data visualization
-* A production README
+In addition, this project includes:
+
+* Subheadings to describe how to use each functionality
+* Links to personal websites
 
 
-## Wireframes
-
-![Screen Shot 2022-02-24 at 9 50 47 PM](https://user-images.githubusercontent.com/96455487/155662083-d107385f-bea9-458f-836f-a372b136f27f.png)
-
-* The interactive map will be the center of the page
-* On the left, there will be a drop-down menu to select a year
-* On the right, there will be a section to scroll through and select a housewife
-* Below the "Select Housewife" section, there will be a button to open an external link for their best moment on the show
-
-
-## Technologies, Libraries, APIs
+## Technologies Used
 
 * **Webpack** to bundle and transpile the source JavaScript code
 * **D3** to render the map and data within it
 * **Google Trends** to acquire the data
 
+## Assigning Specific Color to State Based on Data
 
-## Implementation Timeline
+In order to change the fill of each state, an array was created that stored each housewives' percentage of popularity based on the dataset of the year that was being observed.
+```javascript
+let arr = [parseInt(dataset[i].Nene), parseInt(dataset[i].Kim), parseInt(dataset[i].Kandi), parseInt(dataset[i].Porsha), parseInt(dataset[i].Kenya)]
+let biggest = Math.max(...arr);
+dataValue = arr.indexOf(biggest);
+```
+The index of the biggest percentage was stored in the corresponding state's property within a "cast" key. Using the **d3.selectAll() function** in **D3.js**, the key was used to fill the state with the respective color based on a color array created prior.
+```javascript
+svg.selectAll(".state")
+    .data(states)
+    .enter().append("path")
+    .attr("class", "state")
+    .attr("d", path) // "d" is the coordinate points for each state, path draws it
+    .style("stroke", "#fff")
+    .style("stroke-width", "1")
+    .style("fill", function (d) {
+       let value = d.properties.cast;
+       return color(value);
+    })
+```
 
-* **Friday-Weekend:** Solidify the layout of my page and research into different resources to acquire my data. Set up my libraries and APIs and get accustomed to D3, playing around with different functions to heighten the quality of my visualization. Plan out what manipulation functions I need.
-* **Monday:** Render my map. Import the data and assign my results per state.
-* **Tuesday:** Finish working on the other functionalities of the "Year" section and "Cast Member" section to work with my map
-* **Wednesday:** Focus on styling and implement different color schemes
-* **Thursday:** Deploy to GitHub pages
+## Rendering Second Most Popular Housewife upon Hover
+The **d3.select() function** was first used to create a *div* tag that would contain the text for the second most popular housewife. The **d3.selection.on() event listener** was then used to handle the *mouseover* and *mouseout* events by rendering this text upon hover over a specific state.
+```javascript
+svg.selectAll(".state")
+    .on("mouseover", function (d) {
+        div.transition()
+            .duration(200)
+            .style("opacity", .9);
+        div.text(housewife[d.properties.second])
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+    })
+    .on("mouseout", function (d) {
+        div.transition()
+            .duration(500)
+            .style("opacity", 0);
+    });
+```
 
-## Live Link
-https://justinneyugn.github.io/HPIC/
