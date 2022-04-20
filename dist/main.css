@@ -104,7 +104,7 @@ body {
   left: 30%;
 }
 
-.header-link > img {
+.header-link>img {
   height: 27px;
   width: 27px;
   margin-right: 10px;
@@ -142,12 +142,12 @@ body {
   text-align: center;
   cursor: pointer;
   color: black;
-  background-color: #cebeec;
+  background-color: lightgray;
   font-family: sans-serif;
   border-radius: 12%;
   font-size: 20px;
   font-weight: 500;
-  border-color: lightgray;
+  border-color: gray;
 }
 
 .firstButton:hover {
@@ -178,12 +178,12 @@ body {
   text-align: center;
   cursor: pointer;
   color: black;
-  background-color: #cebeec;
+  background-color: lightgray;
   font-family: sans-serif;
   border-radius: 12%;
   font-size: 20px;
   font-weight: 500;
-  border-color: lightgray;
+  border-color: gray;
 }
 
 .thirdButton {
@@ -194,12 +194,12 @@ body {
   text-align: center;
   cursor: pointer;
   color: black;
-  background-color: #cebeec;
+  background-color: lightgray;
   font-family: sans-serif;
   border-radius: 12%;
   font-size: 20px;
   font-weight: 500;
-  border-color: lightgray;
+  border-color: gray;
 }
 
 .fourthButton {
@@ -210,12 +210,12 @@ body {
   text-align: center;
   cursor: pointer;
   color: black;
-  background-color: #cebeec;
+  background-color: lightgray;
   font-family: sans-serif;
   border-radius: 12%;
   font-size: 20px;
   font-weight: 500;
-  border-color: lightgray;
+  border-color: gray;
 }
 
 .fifthButton {
@@ -226,10 +226,23 @@ body {
   text-align: center;
   cursor: pointer;
   color: black;
-  background-color: #cebeec;
+  background-color: lightgray;
   font-family: sans-serif;
   border-radius: 12%;
   font-size: 20px;
   font-weight: 500;
-  border-color: lightgray;
+  border-color: gray;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 70px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: white;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }

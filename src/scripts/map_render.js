@@ -2,13 +2,13 @@
 
 Michelle Chandra, State Choropleth example from "Basic US State Map - D3" 
 http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922  
-		
+
 Jonathan Soma, video from "Making a map of the United States with d3, topojson, and a csv"
 https://www.youtube.com/watch?v=G-VggTK-Wlg&t=983s */
 
 
 export function fn1() {
-    let margin = { top: 0, left: 0, right: 0, bottom: 0};
+    let margin = { top: 0, left: 0, right: 0, bottom: 0 };
     let height = 400 - margin.top - margin.bottom;
     let width = 800 - margin.left - margin.right;
 
@@ -21,21 +21,27 @@ export function fn1() {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // us.json imported from GeoJSON from TopoJSON
+    // Append Div for tooltip to SVG
+    let div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
+    // us.json imported from GeoJSON from TopoJSON
     d3.queue()
         .defer(d3.json, "https://raw.githubusercontent.com/justinneyugn/hpic_data/main/us_states.json")
         .await(ready);
 
     // create basis for legend
     let color = d3.scale.linear()
-        .range(["#E0BBE4","#BAC1F1","#91C7ED","#78C9D8","#7EC7B9"]);
+        .range(["#003F5C", "#58508D", "#BC5090", "#FF6361", "#FFA600"]);
+    // .range(["#E0BBE4","#BAC1F1","#91C7ED","#78C9D8","#7EC7B9"]);
     let legendText = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
 
     // uses Albers USA through GeoMercator and centers it while zooming in 
     let projection = d3.geoAlbersUsa()
-        .translate([ width / 2, height / 2])
+        .translate([width / 2, height / 2])
         .scale(900);
 
     // creates path (geoPath) and sets projection
@@ -45,7 +51,7 @@ export function fn1() {
 
 
     function ready(error, data) {
-        
+
         // topojson.feature converts raw geo data into useable geo data
         let states = topojson.feature(data, data.objects.us_states).features
 
@@ -58,7 +64,7 @@ export function fn1() {
             .data(years)
             .enter()
             .append("button")
-            .text(function(d) {return d;})
+            .text(function (d) { return d; })
 
         // add ids for each button
         let buttontags = document.querySelectorAll("button")
@@ -71,28 +77,39 @@ export function fn1() {
 
 
 
-        color.domain([0,1,2,3,4]); // set range of input data
+        color.domain([0, 1, 2, 3, 4]); // set range of input data
 
-        
-        function test(dataset){
+
+        function test(dataset) {
+            let housewife = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
 
             for (let i = 0; i < dataset.length; i++) {
                 let dataState = dataset[i].State;
-                let dataValue = 0
+                let dataValue = 0;
+                let secondValue = 0;
                 let arr = [parseInt(dataset[i].Nene), parseInt(dataset[i].Kim), parseInt(dataset[i].Kandi), parseInt(dataset[i].Porsha), parseInt(dataset[i].Kenya)]
                 let biggest = Math.max(...arr);
                 dataValue = arr.indexOf(biggest);
+                if (dataValue > -1) {
+                    arr.splice(dataValue, 1);
+                }
+                let secondBiggest = Math.max(...arr);
+                secondValue = arr.indexOf(secondBiggest);
+                if (secondValue >= dataValue) {
+                    secondValue += 1;
+                }
 
-                for (let j = 0; j < states.length; j++){
+                for (let j = 0; j < states.length; j++) {
                     let stateName = states[j].properties.name;
-                    if (dataState === stateName){
+                    if (dataState === stateName) {
                         states[j].properties["cast"] = dataValue;
+                        states[j].properties["second"] = secondValue;
                         break;
                     }
                 }
-                
+
             }
-            
+
             svg.selectAll(".state")
                 .data(states)
                 .enter().append("path")
@@ -100,17 +117,32 @@ export function fn1() {
                 .attr("d", path) // "d" is the coordinate points for each state, path draws it
                 .style("stroke", "#fff")
                 .style("stroke-width", "1")
-                .style("fill", function(d) {
+                .style("fill", function (d) {
                     let value = d.properties.cast;
                     return color(value);
                 })
 
             //changes the fill color of map based on change in states.properties.cast when different year is clicked
             let state = document.querySelectorAll(".state");
-                for (let i = 0; i < state.length; i++) {
-                    let value = states[i].properties.cast;
-                    state[i].style.fill = color(value);
-                }
+            for (let i = 0; i < state.length; i++) {
+                let value = states[i].properties.cast;
+                state[i].style.fill = color(value);
+            }
+
+            svg.selectAll(".state")
+                .on("mouseover", function (d) {
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    div.text(housewife[d.properties.cast] + ', ' + housewife[d.properties.second])
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
+                })
+                .on("mouseout", function (d) {
+                    div.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
         }
 
         //start the homepage with 2012 map already loaded
@@ -118,16 +150,16 @@ export function fn1() {
 
 
         //event listeners that load respective year's data onto map
-        document.getElementById("buttons").addEventListener("click", function(e){
-            if (e.target && e.target.matches("button.firstButton")){
+        document.getElementById("buttons").addEventListener("click", function (e) {
+            if (e.target && e.target.matches("button.firstButton")) {
                 d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2012_data.csv", test)
-            } else if (e.target && e.target.matches("button.secondButton")){
+            } else if (e.target && e.target.matches("button.secondButton")) {
                 d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2013_data.csv", test)
-            } else if (e.target && e.target.matches("button.thirdButton")){
+            } else if (e.target && e.target.matches("button.thirdButton")) {
                 d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2014_data.csv", test)
-            } else if (e.target && e.target.matches("button.fourthButton")){
+            } else if (e.target && e.target.matches("button.fourthButton")) {
                 d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2015_data.csv", test)
-            } else if (e.target && e.target.matches("button.fifthButton")){
+            } else if (e.target && e.target.matches("button.fifthButton")) {
                 d3.csv("https://raw.githubusercontent.com/justinneyugn/hpic_data/main/2016_data.csv", test)
             }
         })
@@ -140,9 +172,9 @@ export function fn1() {
             .data(color.domain().slice())
             .enter()
             .append("g")
-            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
-        
-    
+            .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; })
+
+
         legend.append("rect")
             .attr("width", 18)
             .attr("height", 18)
@@ -157,7 +189,7 @@ export function fn1() {
             .attr("class", "housewife")
             .append("a")
             .attr("target", "_blank")
-            .text(function(d) { return d; });
+            .text(function (d) { return d; });
 
         // attach link to each name in legend
         let atags = document.querySelectorAll("a")
@@ -167,7 +199,7 @@ export function fn1() {
         atags[5].setAttribute("href", "https://www.youtube.com/watch?v=69hWiJPNlIE")
         atags[6].setAttribute("href", "https://www.youtube.com/watch?v=RVo4EUjznZ0")
 
-        
+
 
     }
 };
