@@ -81,7 +81,7 @@ export function fn1() {
 
 
         function test(dataset) {
-            let housewife = ["Nene Leakes", "Kim Zolciak-Biermann", "Kandi Burruss", "Porsha Williams", "Kenya Moore"];
+            let housewife = ["Nene", "Kim", "Kandi", "Porsha", "Kenya"];
 
             for (let i = 0; i < dataset.length; i++) {
                 let dataState = dataset[i].State;

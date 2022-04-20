@@ -8,6 +8,12 @@ export function descriptions(){
     const child = document.getElementById("positioning");
     map.insertBefore(aboutMap, child);
 
+    const hover = document.createElement("h3");
+    hover.setAttribute("id", "hover-description");
+    const node5 = document.createTextNode("(Hover over a state to see the top two housewives)");
+    hover.appendChild(node5);
+    map.insertBefore(hover, child);
+
     // tag for Years Description
     const aboutYears = document.createElement("h2");
     aboutYears.setAttribute("id", "years-description");
@@ -30,8 +36,5 @@ export function descriptions(){
     legendTitle.appendChild(node4);
     map.insertBefore(legendTitle, child);
 
-    // tag for horizontal line
-    const line = document.createElement("div")
-    line.setAttribute("id", "horizontal-line")
-    map.insertBefore(line, child)
+
 }
