@@ -122,7 +122,7 @@ export function fn1() {
                     return color(value);
                 })
 
-            //changes the fill color of map based on change in states.properties.cast when different year is clicked
+            //changes the fill color of map based on change in states.properties.cast when a different year is clicked
             let state = document.querySelectorAll(".state");
             for (let i = 0; i < state.length; i++) {
                 let value = states[i].properties.cast;
