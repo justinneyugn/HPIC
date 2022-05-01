@@ -55,7 +55,7 @@ export function fn1() {
         // topojson.feature converts raw geo data into useable geo data
         let states = topojson.feature(data, data.objects.us_states).features
 
-        // create buttons to pick a year
+        // create buttons to pick a specific year
         let years = ["2012", "2013", "2014", "2015", "2016"]
 
         let buttons = d3.select("body").append("div")
