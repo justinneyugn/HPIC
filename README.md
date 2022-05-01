@@ -6,7 +6,7 @@ platform for their breakout stars while providing great reaction gifs throughout
 
 **[H.P.I.C.](https://justinneyugn.github.io/HPIC/)** captures the changing popularity throughout the cast by highlighting the most popular Housewife in each state on a rendered map of the U.S. 
 As viewers believe the show's peak spanned from Season 4 to Season 8, **[H.P.I.C.](https://justinneyugn.github.io/HPIC/)** traverses through 2012 to 2016 and provides
-a closer look at who spearheaded the show's popularity.
+a closer look at who spearheaded the show's popularity
 
 
 
